@@ -1,310 +1,149 @@
-\# Google Drive Bidirectional Sync for Obsidian
+Here’s a clean, professional **root‑level `README.md`** for your GitHub repository that will host multiple Obsidian plugins. It introduces the repo, lists the plugins (with the GDrive one as the first), provides general installation instructions, and includes developer/contribution guidelines. You can copy this directly and adjust as you add more plugins.
+
+```markdown
+# Obsidian Plugins by [Your Name]
+
+A collection of community plugins for [Obsidian](https://obsidian.md/), the powerful knowledge base that works on local Markdown files.
+
+This repository hosts the source code and releases for all my Obsidian plugins. Each plugin lives in its own subfolder and has its own detailed README, but this page gives you an overview and general installation instructions.
 
+---
+
+## 📦 Available Plugins
 
+| Plugin | Description | Status | Links |
+|--------|-------------|--------|-------|
+| **Google Drive Bidirectional Sync** | Two‑way sync between your vault and your own Google Drive. Supports conflict resolution, deletion markers, and works on desktop & mobile. | ✅ Active | [Folder](./gdrive-bidirectional-sync) · [README](./gdrive-bidirectional-sync/README.md) · [Releases](../../releases?q=gdrive) |
+| *Your next plugin* | *Short description here* | 🚧 Planned | – |
 
-A powerful Obsidian plugin that keeps your vault in sync across devices using Google Drive. It supports two‑way sync, conflict resolution, and works on both desktop (Windows, macOS, Linux) and mobile (Android, iOS).
+> **Note:** Each plugin has its own README with detailed setup, usage, and troubleshooting. Click the folder link to view it.
 
+---
 
+## 🚀 Installation
 
-\[!\[GitHub release](https://img.shields.io/github/v/release/your-username/gdrive-bidirectional-sync)](https://github.com/your-username/gdrive-bidirectional-sync/releases)
+### From Obsidian Community Plugins (Recommended)
+Once a plugin is accepted into the official community store, you can install it directly:
+1. Open Obsidian → **Settings** → **Community Plugins** → **Browse**.
+2. Search for the plugin name.
+3. Click **Install**, then **Enable**.
 
-\[!\[License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+### Manual Installation
+If a plugin is not yet in the community store, or you want to install a specific release:
+1. Download the latest release ZIP from the [Releases page](../../releases).
+2. Extract the contents into your vault’s plugin folder:  
+   `<your-vault>/.obsidian/plugins/<plugin-id>/`
+3. Ensure the folder contains at least `main.js`, `manifest.json`, and `styles.css` (if applicable).
+4. Reload Obsidian and enable the plugin in **Settings → Community Plugins**.
 
+Each plugin’s README will have specific installation notes if needed.
 
+---
 
-\---
+## 🛠️ Repository Structure
 
+```
+obsidian-plugins/
+├── gdrive-bidirectional-sync/     # Google Drive sync plugin
+│   ├── main.js
+│   ├── manifest.json
+│   ├── styles.css
+│   ├── README.md
+│   └── ...
+├── another-plugin/                # Future plugin
+│   └── ...
+├── .gitignore
+├── LICENSE
+└── README.md                      # This file
+```
 
+Each plugin folder is self‑contained. Build outputs (`main.js`) are committed for release convenience, but source files and build scripts are also included.
 
-\## Features
+---
 
+## 🔒 Security & Privacy
 
+- **Never commit `data.json`** – it contains OAuth tokens and other sensitive settings. It is generated at runtime by Obsidian and should be kept private.
+- All plugins are designed with privacy in mind. For example, the Google Drive plugin uses the `drive.file` scope, which only allows access to files the plugin itself creates. Your personal data is never shared with third parties.
+- See each plugin’s README for specific privacy details.
 
-\- \*\*Two‑way sync\*\* between your local vault and Google Drive.
+---
 
-\- \*\*Automatic folder creation\*\* – mirrors your vault structure in Drive.
+## 🧑‍💻 Development
 
-\- \*\*Conflict resolution\*\* – choose between `newer`, `local`, `remote`, or `ask` (creates a conflict file).
+### Prerequisites
+- [Node.js](https://nodejs.org/) (v16 or later)
+- [npm](https://www.npmjs.com/) or [pnpm](https://pnpm.io/)
+- [Obsidian](https://obsidian.md/) for testing
 
-\- \*\*Smart timestamp \& hash comparison\*\* – reduces unnecessary conflicts by using content hashes and local edit timestamps stored on Drive.
+### General Workflow
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/obsidian-plugins.git
+   cd obsidian-plugins
+   ```
+2. Navigate to the plugin you want to work on:
+   ```bash
+   cd gdrive-bidirectional-sync
+   ```
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
+4. Build the plugin:
+   ```bash
+   npm run build
+   ```
+   Or run in watch mode during development:
+   ```bash
+   npm run dev
+   ```
+5. Copy the built `main.js`, `manifest.json`, and `styles.css` into your test vault’s plugin folder, or use a symlink.
 
-\- \*\*Deletion markers\*\* – deleted files are propagated safely across devices.
+Each plugin may have its own `package.json` and build configuration. Check the plugin’s README for specific instructions.
 
-\- \*\*Manual actions\*\* – `Sync now`, `Force upload all`, `Force download all`.
+---
 
-\- \*\*Status bar \& ribbon icon\*\* – quick access to sync status.
+## 🤝 Contributing
 
-\- \*\*Cross‑platform\*\* – works on Windows, macOS, Linux, Android, and iOS.
+Contributions are welcome! If you find a bug or have a feature request:
+1. Open an issue in this repository. Please mention the plugin name in the title (e.g., `[GDrive Sync] Bug: ...`).
+2. If you want to submit a fix, fork the repo, create a feature branch, and open a pull request.
 
-\- \*\*Exclude patterns\*\* – skip folders like `.obsidian` or `.trash`.
+Please make sure your code follows the existing style and passes any tests (if present).
 
+---
 
+## 📄 License
 
-\---
+This repository and all plugins within are licensed under the **MIT License** unless otherwise stated in a plugin’s folder. See the [LICENSE](./LICENSE) file for details.
 
+---
 
+## 💬 Support
 
-\## Installation
+- For general questions, open a discussion or issue.
+- For plugin‑specific issues, please use the issue tracker and tag the plugin name.
+- If you find these plugins useful, consider starring ⭐ the repository or buying me a coffee ☕.
 
+---
 
+*Not affiliated with Obsidian.md or any of the services these plugins integrate with.*
+```
 
-\### From Obsidian Community Plugins (Recommended)
+### How to use this
 
-1\. Open Obsidian → \*\*Settings\*\* → \*\*Community Plugins\*\* → \*\*Browse\*\*.
+1. **Replace placeholders**:
+   - `[Your Name]` with your name or GitHub username.
+   - `your-username` in the clone URL.
+   - The second plugin row is just an example; remove it or replace it as you add more plugins.
 
-2\. Search for \*\*Google Drive Bidirectional Sync\*\*.
+2. **Adjust the repository structure** if your folder names differ (e.g., if you put each plugin in a separate repo instead of a monorepo). If you plan to use a single repo for all plugins, the structure shown is ideal.
 
-3\. Click \*\*Install\*\*, then \*\*Enable\*\*.
+3. **Add a top‑level `LICENSE`** file (MIT recommended) if you haven’t already.
 
+4. **Update the plugin list** as you add new plugins. You can also add badges for each plugin (e.g., release version, license) if you like.
 
+5. **Link to each plugin’s README** correctly. If the GDrive plugin folder is named `gdrive-bidirectional-sync`, the link `./gdrive-bidirectional-sync/README.md` will work.
 
-\### Manual Installation
-
-1\. Download the latest release from the \[Releases page](https://github.com/your-username/gdrive-bidirectional-sync/releases).
-
-2\. Extract the ZIP into your vault's plugin folder:  
-
-&#x20;  `<your-vault>/.obsidian/plugins/gdrive-bidirectional-sync/`
-
-3\. Ensure the folder contains `main.js`, `manifest.json`, and `styles.css`.
-
-4\. Reload Obsidian and enable the plugin in \*\*Settings → Community Plugins\*\*.
-
-
-
-\---
-
-
-
-\## Setup Guide
-
-
-
-\### 1. Create Google Cloud OAuth Credentials
-
-
-
-You need a Google Cloud project with the Drive API enabled and OAuth credentials.
-
-
-
-1\. Go to the \[Google Cloud Console](https://console.cloud.google.com/).
-
-2\. Create a new project (or select an existing one).
-
-3\. Navigate to \*\*APIs \& Services → Library\*\*, search for \*\*Google Drive API\*\*, and \*\*Enable\*\* it.
-
-4\. Go to \*\*APIs \& Services → OAuth consent screen\*\*.
-
-&#x20;  - Choose \*\*External\*\* user type.
-
-&#x20;  - Fill in the required fields (App name, User support email, Developer contact).
-
-&#x20;  - \*\*Scopes\*\*: Add `https://www.googleapis.com/auth/drive.file` (this is a non‑sensitive scope that only allows access to files created by the app).
-
-&#x20;  - \*\*Test users\*\*: Add your own Google account email.
-
-5\. \*\*Publish the app to production\*\* (important – see below).
-
-6\. Go to \*\*APIs \& Services → Credentials\*\* → \*\*Create Credentials\*\* → \*\*OAuth client ID\*\*.
-
-&#x20;  - Application type: \*\*TVs and Limited Input devices\*\* (this enables the device flow, which works on mobile).
-
-&#x20;  - Copy the \*\*Client ID\*\* and \*\*Client Secret\*\*.
-
-
-
-> \*\*Why publish to production?\*\*  
-
-> Google limits refresh tokens to 7 days when the OAuth consent screen is in \*\*Testing\*\* mode. Publishing to \*\*Production\*\* removes this limit, so you won't have to sign in every week.  
-
-> \*\*Rest assured:\*\* publishing does \*\*not\*\* make your Drive public. Each user authenticates with their own Google account, and the `drive.file` scope ensures the app can only see files it creates. Your personal Drive remains private.
-
-
-
-\### 2. Configure the Plugin
-
-
-
-1\. Open Obsidian → \*\*Settings\*\* → \*\*Community Plugins\*\* → \*\*Google Drive Bidirectional Sync\*\*.
-
-2\. Paste your \*\*Client ID\*\* and \*\*Client Secret\*\* into the respective fields.
-
-3\. Click \*\*Sign in with Google\*\*.
-
-4\. A modal will show a code and a URL. Open the URL in your browser, enter the code, and approve access.
-
-5\. Once authorized, the plugin will create a folder in your Drive (named after your vault) and begin syncing.
-
-
-
-\---
-
-
-
-\## Usage
-
-
-
-\- \*\*Sync now\*\*: Click the ribbon icon (refresh) or the status bar text, or use the command palette (`Ctrl/Cmd + P` → `Sync now`).
-
-\- \*\*Auto‑sync\*\*: Set an interval in the settings (0 to disable).
-
-\- \*\*Sync on startup\*\*: Automatically sync a few seconds after Obsidian launches.
-
-\- \*\*Force upload/download\*\*: Use the settings tab or command palette to overwrite one side with the other. \*\*Use with caution\*\* – back up your vault first.
-
-
-
-\### Settings
-
-
-
-| Setting | Description |
-
-|---------|-------------|
-
-| \*\*Client ID\*\* | OAuth 2.0 Client ID from Google Cloud. |
-
-| \*\*Client Secret\*\* | OAuth 2.0 Client Secret. |
-
-| \*\*Auto‑sync interval\*\* | Minutes between automatic syncs (0 = disabled). |
-
-| \*\*Sync on startup\*\* | Run a sync shortly after Obsidian starts. |
-
-| \*\*Conflict strategy\*\* | `newer` (keep latest edit), `local` (always keep local), `remote` (always keep remote), `ask` (save both versions as a conflict file). |
-
-| \*\*Exclude patterns\*\* | Comma‑separated paths to skip (default: `.obsidian,.trash`). |
-
-
-
-\### Commands
-
-
-
-\- `GDrive Sync: Sync now`
-
-\- `GDrive Sync: Show sync status`
-
-\- `GDrive Sync: Force upload all files to Google Drive`
-
-\- `GDrive Sync: Force download all files from Google Drive`
-
-
-
-\---
-
-
-
-\## How Conflict Resolution Works
-
-
-
-The plugin stores metadata about each file in `.obsidian/gdrive-sync-record.json` and on Google Drive (via `appProperties`).
-
-
-
-\- \*\*Local edit timestamp\*\* (`lastLocalMtime`) is stored on Drive when a file is uploaded.
-
-\- \*\*Content hash\*\* (`lastLocalHash`) is also stored, allowing the plugin to detect identical content even if timestamps differ.
-
-\- When both sides have changed, the chosen conflict strategy is applied. For `newer`, the plugin compares the local edit time with the remote uploader's timestamp.
-
-
-
-This approach minimises false conflicts caused by clock differences between devices.
-
-
-
-\---
-
-
-
-\## Privacy \& Security
-
-
-
-\- The plugin uses the `drive.file` scope, which only permits access to files \*\*created by the app\*\*. It cannot read, modify, or delete any other files in your Google Drive.
-
-\- OAuth credentials and tokens are stored locally in your vault's plugin data (`data.json`). Keep this file secure.
-
-\- No data is sent to any third‑party servers – all communication is directly between your device and Google's API.
-
-
-
-\---
-
-
-
-\## Troubleshooting
-
-
-
-\*\*I have to sign in every few days.\*\*  
-
-Your OAuth consent screen is likely still in \*\*Testing\*\* mode. Publish it to \*\*Production\*\* in the Google Cloud Console to get long‑lived refresh tokens.
-
-
-
-\*\*Sync fails with authentication errors.\*\*  
-
-Go to the plugin settings and click \*\*Re‑authenticate\*\* to obtain a new token.
-
-
-
-\*\*A previous sync crashed.\*\*  
-
-The plugin resets the `syncInProgress` flag on startup and rebuilds state on the next sync.
-
-
-
-\*\*Large divergence between devices.\*\*  
-
-Use \*\*Force upload all\*\* or \*\*Force download all\*\* to realign, but always back up your vault first.
-
-
-
-\*\*Conflict files keep appearing.\*\*  
-
-Check that your devices' clocks are reasonably in sync. The plugin uses timestamps and content hashes to reduce conflicts, but large clock skew can still cause issues.
-
-
-
-\---
-
-
-
-\## Development
-
-
-
-This plugin is written in TypeScript and bundled with esbuild.
-
-
-
-```bash
-
-\# Clone the repository
-
-git clone https://github.com/your-username/gdrive-bidirectional-sync.git
-
-cd gdrive-bidirectional-sync
-
-
-
-\# Install dependencies
-
-npm install
-
-
-
-\# Build for production
-
-npm run build
-
-
-
-\# Development mode (watch)
-
-npm run dev
-
+This root README gives visitors a clear overview, makes installation easy, and sets expectations for privacy and contribution. It’s a solid foundation for your multi‑plugin repository.
