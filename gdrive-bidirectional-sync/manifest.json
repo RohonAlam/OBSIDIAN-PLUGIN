@@ -1,0 +1,11 @@
+{
+  "id": "gdrive-bidirectional-sync",
+  "name": "Google Drive Bidirectional Sync",
+  "version": "1.1.0",
+  "minAppVersion": "1.0.0",
+  "description": "Bidirectional sync of your Obsidian vault with Google Drive. Works on Android and Windows.",
+  "author": "Your Name",
+  "authorUrl": "",
+  "fundingUrl": "",
+  "isDesktopOnly": false
+}
