@@ -1,6 +1,5 @@
 Here’s a clean, professional **root‑level `README.md`** for your GitHub repository that will host multiple Obsidian plugins. It introduces the repo, lists the plugins (with the GDrive one as the first), provides general installation instructions, and includes developer/contribution guidelines. You can copy this directly and adjust as you add more plugins.
 
-```markdown
 # Obsidian Plugins by [Your Name]
 
 A collection of community plugins for [Obsidian](https://obsidian.md/), the powerful knowledge base that works on local Markdown files.
@@ -129,7 +128,7 @@ This repository and all plugins within are licensed under the **MIT License** un
 ---
 
 *Not affiliated with Obsidian.md or any of the services these plugins integrate with.*
-```
+
 
 ### How to use this
 
